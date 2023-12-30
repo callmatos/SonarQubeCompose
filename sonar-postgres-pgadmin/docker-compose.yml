@@ -31,7 +31,7 @@ services:
     ports:
       - 9187:9187
     environment:
-      DATA_SOURCE_NAME: "postgresql://postgres:sonar@sonarqube-postgres:5432/sonar?sslmode=disable"
+      DATA_SOURCE_NAME: "postgresql://sonar:sonar@sonarqube-postgres:5432/sonar?sslmode=disable"
     networks:
       - sonarnet
 
