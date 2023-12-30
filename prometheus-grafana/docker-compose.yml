@@ -1,0 +1,36 @@
+version: '3'
+services:
+  prometheus:
+    container_name: cont-prometheus
+    image: prom/prometheus
+    restart: always
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    networks:
+      - prometheusgrafnet
+
+  alertmanager:
+    container_name: cont-alertmanager
+    image: prom/alertmanager
+    restart: always
+    ports:
+      - "9093:9093"
+    networks:
+      - prometheusgrafnet
+
+  grafana:
+    container_name: cont-grafana
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - prometheusgrafnet
+
+networks:
+  prometheusgrafnet:
+
+volumes:
+  prometheus-data:
