@@ -2,10 +2,11 @@ version: '3'
 services:
   pgadmin:
     image: dpage/pgadmin4:latest
+    restart: always
     ports:
       - "8101:80"
     environment:
-      PGADMIN_DEFAULT_EMAIL: sonar@gmail.com
+      PGADMIN_DEFAULT_EMAIL: callmatos@gmail.com
       PGADMIN_DEFAULT_PASSWORD: sonar
     networks:
       - sonarnet
@@ -28,6 +29,7 @@ services:
   
   postgres-exporter:
     image: wrouesnel/postgres_exporter
+    restart: always
     ports:
       - 9187:9187
     environment:
@@ -39,7 +41,6 @@ services:
     container_name: sonarqube
     image: sonarqube:latest
     restart: always
-
     ports:
       - "9000:9000"
     environment:
