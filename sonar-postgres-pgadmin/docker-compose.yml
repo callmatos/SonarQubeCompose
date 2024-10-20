@@ -57,7 +57,7 @@ services:
     networks:
       - devopsnet
     depends_on:
-      - postgres-db
+      - postgres
 
 networks:
   devopsnet:
