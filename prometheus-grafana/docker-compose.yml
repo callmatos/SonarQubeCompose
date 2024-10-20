@@ -1,7 +1,7 @@
 version: '3'
 services:
   prometheus:
-    container_name: cont-prometheus
+    container_name: prometheus
     image: prom/prometheus
     restart: always
     ports:
@@ -13,7 +13,7 @@ services:
       - prometheusgrafnet
 
   alertmanager:
-    container_name: cont-alertmanager
+    container_name: alertmanager
     image: prom/alertmanager
     restart: always
     ports:
@@ -22,7 +22,7 @@ services:
       - prometheusgrafnet
 
   grafana:
-    container_name: cont-grafana
+    container_name: grafana
     image: grafana/grafana
     ports:
       - "3000:3000"
